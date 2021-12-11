@@ -18,6 +18,18 @@ function changePlayerTurn() {
   }
 }
 
+function endGame() {
+  if (player1Score >= 20) {
+    message.innerHTML = "Player 1 has won!";
+    rollBtn.style.display = "none";
+    resetBtn.style.display = "inline";
+  } else if (player2Score >= 20) {
+    message.innerHTML = "Player 2 has won!";
+    rollBtn.style.display = "none";
+    resetBtn.style.display = "inline";
+  }
+}
+
 function showDisplayBtn() {
   player1Dice.classList.remove("active");
   player2Dice.classList.add("active");
@@ -38,6 +50,8 @@ function generateRandomNumber() {
     message.innerHTML = "Player 1 Turn";
     showDisplayBtn();
   }
+
   changePlayerTurn();
+  endGame();
 }
 rollBtn.addEventListener("click", generateRandomNumber);
