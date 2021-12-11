@@ -9,6 +9,15 @@ const resetBtn = document.querySelector("#resetBtn");
 let player1Score = 0;
 let player2Score = 0;
 let player1Turn = true;
+
+function changePlayerTurn() {
+  if (player1Turn === true) {
+    player1Turn = false;
+  } else {
+    player1Turn = true;
+  }
+}
+
 function showDisplayBtn() {
   player1Dice.classList.remove("active");
   player2Dice.classList.add("active");
@@ -29,5 +38,6 @@ function generateRandomNumber() {
     message.innerHTML = "Player 1 Turn";
     showDisplayBtn();
   }
+  changePlayerTurn();
 }
 rollBtn.addEventListener("click", generateRandomNumber);
