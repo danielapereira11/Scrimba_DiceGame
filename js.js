@@ -54,4 +54,21 @@ function generateRandomNumber() {
   changePlayerTurn();
   endGame();
 }
+
+function resetGame() {
+  message.innerHTML = "Player 1 turn";
+  rollBtn.style.display = "inline";
+  resetBtn.style.display = "none";
+  player1Score = 0;
+  player1Dice.innerHTML = "-";
+  player1Scoreboard.innerHTML = "0";
+  player2Score = 0;
+  player2Dice.innerHTML = "-";
+  player2Scoreboard.innerHTML = "0";
+  player1Turn = true;
+  player2Dice.classList.remove("active");
+  player1Dice.classList.add("active");
+}
+
 rollBtn.addEventListener("click", generateRandomNumber);
+resetBtn.addEventListener("click", resetGame);
